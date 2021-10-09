@@ -4,8 +4,6 @@ import torch.optim as optim
 import torch.nn as nn
 import torch
 
-print(__package__)
-
 if __name__ == '__main__': 
     import sys
     from os import path 

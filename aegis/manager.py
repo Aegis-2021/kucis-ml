@@ -24,7 +24,7 @@ def setQuantity(n, ratio):
 def setPath(path):
     global root_path
     global meta_path
-    root_path = path + 'kucis_dataset/'
+    root_path = path + '\\dataset\\'
     meta_path = root_path + 'metadata.csv'
 
 def splitDataset(ratio, random_seed = 777):
@@ -89,7 +89,7 @@ def makeImages(regulation=2.0, dim=1, show=False):
 def showImage(method):
     mPath = 'Incremental_Coordinate/'
     try:
-        path = root_path + random.choice(['test/', 'train/', 'valid/']) + mPath
+        path = root_path + random.choice(['test\\', 'train\\', 'valid\\']) + mPath
     except NameError as e:
         print(e,':aegisml.manager.setPath()가 설정되지 않았습니다.')
         return

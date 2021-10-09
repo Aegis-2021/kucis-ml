@@ -3,15 +3,19 @@ from torch.optim.lr_scheduler import ReduceLROnPlateau
 import torch.optim as optim
 import torch.nn as nn
 import torch
-import time
-import os
 
-import aegis.manager as AM
-import aegis.networks.CNN as CNN
-import aegis.networks.ResNet as ResNet
-import aegis.learning.study as study
-import aegis.learning.test as test
+print(__package__)
 
+if __name__ == '__main__': 
+    import sys
+    from os import path 
+    print(path.dirname( path.dirname( path.abspath(__file__) ) ))
+    sys.path.append(path.dirname( path.dirname( path.abspath(__file__) ) ))
+    from aegis import manager
+    from aegis.networks import CNN
+    from aegis.networks import ResNet
+    from aegis.learning import study
+    from aegis.learning import test
 
 #set hyper parameters
 hyper_params = {
@@ -25,9 +29,8 @@ print('다음 기기로 학습함:', device)
 torch.manual_seed(777)
 if device == 'cuda':
   torch.cuda.manual_seed_all(777)
-
-AM.setPath('/ML/')
-trainset, validset, testset = AM.splitDataset([0.75, 0.15, 0.1], random_seed = 777)
+manager.setPath(path.dirname( path.abspath(__file__)))
+trainset, validset, testset = manager.splitDataset([0.75, 0.15, 0.1], random_seed = 777)
 
 train_dl = DataLoader(trainset, batch_size = hyper_params['batch_size'], shuffle=True)
 valid_dl = DataLoader(validset, batch_size = hyper_params['batch_size'], shuffle=True)

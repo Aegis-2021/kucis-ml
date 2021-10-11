@@ -1,6 +1,6 @@
 # Aegis-ML
 
-## [Microsoft Malware Classification Challenge (BIG 2015)](https://www.kaggle.com/c/malware-classification)
+### [Microsoft Malware Classification Challenge (BIG 2015)](https://www.kaggle.com/c/malware-classification)
 
 * Envs  
 
@@ -21,3 +21,14 @@ docker를 이용한 container 환경에서 개발되었으므로 docker hub에�
 - 로컬환경에서 실행하는 경우 anaconda로 pytorch 및 tqdm, matplotlib, pandas, numpy, torchvision, torchsummary 등의 패키지를 설치합니다. 그리고 [이 링크](https://drive.google.com/file/d/1-97yHevn9gdJ_9rLoDd_TT6HLcxkOXtn/view?usp=sharing)에서 kucis_dataset.7z을 다운받은 뒤 압축을 풀고 jupyter notebook 또는 visual studio code로 실행 가능하지만 권장하지 않습니다.
 
 
+### Converter  
+
+input 폴더에 전처리 전 파일을 넣고 converter.py 를 실행하면 output 폴더에 전처리된 numpy 파일이 생성됩니다.  
+
+Incremental coordinate, size: 256x256 channel: 1
+
+### Gmail Crawler
+
+구글 클라우드 플랫폼에서 gmail api oauth token을 생성하면 그 계정에 한해 메일 정보를 크롤링 할 수 있습니다.
+
+데이터는 크롤러가 실행된 위치의 mails 폴더 내에 저장되고, 메일마다 별도의 폴더가 생성되며 그 안에 메일 내용과 이미지, 첨부파일이 다운로드됩니다.
